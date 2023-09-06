@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 	if(argc != 3)
 	{
 		syslog(LOG_ERR, "wrong number of arguments: %d\n", argc);
-		return 0;
+		return 1;
 	}
 	else
 	{
