@@ -57,13 +57,16 @@ make
 
 
 for i in $( seq 1 $NUMFILES)
-do
-	echo "$WRITEDIR/${username}$i.txt"
-	echo "$WRITESTR"
-	./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+do	
+	
+	
+	ls "./tmp/aeld-data"
+	echo "######"
+	./writer tmp/aeld-data/kal997$i.txt $WRITESTR
+	cat tmp/aeld-data/kal997$i.txt
 done
 
-OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
+OUTPUTSTRING=$(./finder.sh "$WRITEDIR/" "$WRITESTR")
 echo $OUTPUTSTRING
 pwd
 
@@ -78,6 +81,6 @@ else
 fi
 
 # remove temporary directories
-rm -rf /tmp/aeld-data
+#rm -rf /tmp/aeld-data
 
 make clean
