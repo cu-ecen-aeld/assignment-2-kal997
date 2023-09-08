@@ -58,7 +58,9 @@ make
 
 for i in $( seq 1 $NUMFILES)
 do
-	./writer $WRITEDIR/${username}$i.txt $WRITESTR
+	echo "$WRITEDIR/${username}$i.txt"
+	echo "$WRITESTR"
+	./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
 done
 
 OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
