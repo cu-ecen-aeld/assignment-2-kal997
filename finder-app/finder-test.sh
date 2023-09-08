@@ -46,7 +46,7 @@ for i in $( seq 1 $NUMFILES)
 do	
 	
 	
-	ls "./tmp/aeld-data"
+	
 	echo "######"
 	./writer tmp/aeld-data/kal997$i.txt $WRITESTR
 	cat tmp/aeld-data/kal997$i.txt
