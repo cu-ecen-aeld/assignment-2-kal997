@@ -40,22 +40,20 @@ echo "Removing the old writer utility and compiling as a native application"
 
 make
 
-
-
+rm -r tmp
+echo "removing tmp directory"
+mkdir -p tmp/aeld-data
+echo "creating a directory"
 for i in $( seq 1 $NUMFILES)
 do	
 	
-	
-	
 	echo "######"
-	touch tmp/aeld-data/kal997$i.txt
+	
+	touch ./tmp/aeld-data/kal997$i.txt
 	./writer tmp/aeld-data/kal997$i.txt $WRITESTR
 	
 done
 
-
-# remove temporary directories
-rm -rf /tmp/aeld-data
 
 OUTPUTSTRING=$(./finder.sh "$WRITEDIR/" "$WRITESTR")
 
