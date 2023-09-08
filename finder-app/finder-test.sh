@@ -48,8 +48,9 @@ do
 	
 	
 	echo "######"
+	touch tmp/aeld-data/kal997$i.txt
 	./writer tmp/aeld-data/kal997$i.txt $WRITESTR
-	cat tmp/aeld-data/kal997$i.txt
+	
 done
 
 
