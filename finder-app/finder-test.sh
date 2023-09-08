@@ -40,8 +40,6 @@ echo "Removing the old writer utility and compiling as a native application"
 
 make
 
-rm -r tmp
-echo "removing tmp directory"
 mkdir -p tmp/aeld-data
 echo "creating a directory"
 for i in $( seq 1 $NUMFILES)
@@ -76,5 +74,7 @@ else
 	exit 1
 fi
 
+rm -r tmp
+echo "removing tmp directory"
 
 make clean
