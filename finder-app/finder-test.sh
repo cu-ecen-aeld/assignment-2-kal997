@@ -65,6 +65,7 @@ done
 
 OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
 echo $OUTPUTSTRING
+pwd
 
 set +e
 echo "${OUTPUTSTRING}" | grep "${MATCHSTR}"
