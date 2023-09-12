@@ -1,19 +1,20 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 #include<fcntl.h>
-#include<unistd.h>
+#include<unistd.h> // unix standard header
 #include<string.h>
 #include<stdio.h>
 #include<syslog.h>
 int main(int argc, char** argv)
 {
+	int retVal;
 	
 	openlog(NULL, 0, LOG_USER);
 
 	if(argc != 3)
 	{
 		syslog(LOG_ERR, "wrong number of arguments: %d\n", argc);
-		return 1;
+		retVal = 1;
 	}
 	else
 	{
@@ -25,6 +26,7 @@ int main(int argc, char** argv)
 		if(fd == -1)
 		{
 			syslog(LOG_ERR, "can not open file: %s", file);
+			retVal = 1;
 			
 		}
 		else
@@ -35,19 +37,24 @@ int main(int argc, char** argv)
 			if(nr == -1)
 			{
 				syslog(LOG_WARNING, "string is not written %s", string);
+				retVal = 1;
 			}
 			else if(nr != len)
 			{
 				syslog(LOG_WARNING, "string is not fully written %s", string);
+				retVal = 1;
 			}
 			else
 			{	
 				syslog(LOG_DEBUG, "Writing %s to %s", string, file);
+				retVal = 0;
 			}
 	
 		
 		}
 	}
+	
 	closelog();
+	return retVal;
 
 }
